@@ -174,6 +174,23 @@ nav {
   text-align: center;
 }
 
+.typing-loop {
+  display: inline-block;
+}
+
+.typing-loop::after {
+  content: '|';
+  display: inline-block;
+  margin-left: 0.5rem;
+  opacity: 1;
+  animation: blink-cursor 0.8s steps(1) infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 .header__btn {
   text-align: center;
 }
@@ -208,12 +225,23 @@ nav {
 .portfolio__grid {
   margin-top: 4rem;
   display: grid;
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
 }
 
-.portfolio__grid > div {
-  display: grid;
-  gap: 1rem;
+.portfolio__grid img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.portfolio__grid img.active {
+  opacity: 1;
 }
 
 .blog__container .section__header {
@@ -289,6 +317,7 @@ nav {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 24px;
   background-color: var(--white);
+  cursor: pointer;
 }
 
 .faq__item h3 {
@@ -300,6 +329,16 @@ nav {
 .faq__item p {
   color: var(--text-light);
   line-height: 1.75rem;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  margin: 0;
+  transition: opacity 01.6s ease, max-height 01.6s ease;
+}
+
+.faq__item.active p {
+  opacity: 1;
+  max-height: 300px;
 }
 
 
