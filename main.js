@@ -120,9 +120,26 @@ if (aboutSection && typingTexts.length) {
 
 const faqItems = document.querySelectorAll('.faq__item');
 faqItems.forEach((item) => {
-  const revealAnswer = () => item.classList.add('active');
-  item.addEventListener('mouseenter', revealAnswer);
-  item.addEventListener('click', revealAnswer);
+  item.addEventListener('mouseenter', () => {
+    if (!item.classList.contains('locked')) {
+      item.classList.add('active');
+    }
+  });
+
+  item.addEventListener('mouseleave', () => {
+    if (!item.classList.contains('locked')) {
+      item.classList.remove('active');
+    }
+  });
+
+  item.addEventListener('click', () => {
+    const locked = item.classList.toggle('locked');
+    if (locked) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
+  });
 });
 
 const portfolioSection = document.querySelector('#portfolio');
