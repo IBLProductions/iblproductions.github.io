@@ -958,7 +958,7 @@ body.home-page {
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.22) 48%, rgba(0, 0, 0, 0.62)),
     linear-gradient(180deg, rgba(0, 0, 0, 0.35), transparent 38%, rgba(0, 0, 0, 0.35)),
-    url("assets/Sample photography/portfolio-5.avif") center / cover no-repeat;
+    url("assets/Sample photography/portfolio-5.jpg") center / cover no-repeat;
 }
 
 .home-page #home::after {
