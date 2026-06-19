@@ -130,6 +130,14 @@ const scrollRevealOption = {
   duration: 1000,
 };
 
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.body.classList.contains('home-page')) {
+    requestAnimationFrame(() => {
+      document.body.classList.add('home-bg-fade');
+    });
+  }
+});
+
 ScrollReveal().reveal(".header__image img", {
   ...scrollRevealOption,
   origin: "right",

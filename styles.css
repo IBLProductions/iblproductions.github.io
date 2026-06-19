@@ -981,26 +981,32 @@ body.home-page {
   background: #000000;
 }
 
-
 .home-page #home::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  display: block;
+  will-change: opacity, transform;
+  opacity: 0;
+  transform: scale(1.02);
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.22) 48%, rgba(0, 0, 0, 0.62)),
     linear-gradient(180deg, rgba(0, 0, 0, 0.35), transparent 38%, rgba(0, 0, 0, 0.35)),
     url("assets/Sample photography/portfolio-5.jpg") center / cover no-repeat;
-  animation: homeBackgroundFade 1.2s ease-out both;
+}
+
+.home-page.home-bg-fade #home::before {
+  animation: homeBackgroundFade 1.2s ease-out 0.1s both;
 }
 
 @keyframes homeBackgroundFade {
-  from {
+  0% {
     opacity: 0;
     transform: scale(1.02);
   }
-  to {
+  100% {
     opacity: 1;
     transform: scale(1);
   }
